@@ -14,8 +14,7 @@ const ButtonItem = styled(ButtonComponent) `
 `;
 
 const SecondImageComponent = styled(ImageComponent)`
-  width: 100px;
-  height: 100px;
+  width: 200px;
 `;
 
 function App() {
@@ -37,8 +36,8 @@ function App() {
         <ButtonComponent backgroundColor="blue" buttonColor="white" onClickHandler={handleButtonClick}><span>Click Me</span></ButtonComponent>
         <ButtonItem>Answer Me</ButtonItem>
         
-        <ImageComponent />
         <SecondImageComponent borderRadius="50%"/>
+        <ImageComponent />
       </header>
     </div>
   );

@@ -12,10 +12,11 @@ const StyledButton = styled.button`
   }
 `
 
-const ButtonComponent = ({ backgroundColor, onClickHandler, children, buttonColor}) => {
+const ButtonComponent = ({ backgroundColor, onClickHandler, children, buttonColor, className}) => {
   return (
     <div className="button-div">
       <StyledButton
+        className={className}
         background={backgroundColor}
         buttonColor={buttonColor}
         onClick={onClickHandler}>

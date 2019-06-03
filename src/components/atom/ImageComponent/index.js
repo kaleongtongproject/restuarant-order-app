@@ -12,9 +12,9 @@ const ImageContainer = styled.div`
   margin-top: 20px;
 `;
 
-const ImageComponent = ({ imageUrl, imageTitle, borderRadius }) => {
+const ImageComponent = ({ imageUrl, imageTitle, borderRadius, className }) => {
   return (
-    <ImageContainer>
+    <ImageContainer className={className}>
       <ImageHolder src={imageUrl} alt={imageTitle} borderRadius={borderRadius}/>
     </ImageContainer>
   )
