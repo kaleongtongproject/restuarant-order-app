@@ -33,7 +33,7 @@ function App() {
         >
           Learn React
         </a>
-        <ButtonComponent backgroundColor="blue" buttonColor="white" onClickHandler={handleButtonClick}><span>Click Me</span></ButtonComponent>
+        <ButtonComponent backgroundColor="blue" text="Click Me" buttonColor="white" onClickHandler={handleButtonClick}><span>Click Me</span></ButtonComponent>
         <ButtonItem>Answer Me</ButtonItem>
         
         <SecondImageComponent borderRadius="50%"/>
