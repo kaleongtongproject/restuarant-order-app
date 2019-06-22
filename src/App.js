@@ -4,7 +4,7 @@ import './App.css';
 import styled from 'styled-components';
 import ButtonComponent from './components/atom/ButtonComponent';
 import ImageComponent from './components/atom/ImageComponent';
-
+import CardComponent from './components/molecule/CardComponent';
 const handleButtonClick = () => {
   console.log('I was clicked');
 };
@@ -38,6 +38,7 @@ function App() {
         
         <SecondImageComponent borderRadius="50%"/>
         <ImageComponent />
+        <CardComponent ItemName='Hamburger' ItemCost='599'/>
       </header>
     </div>
   );
