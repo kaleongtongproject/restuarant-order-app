@@ -1,0 +1,32 @@
+@import "../../../styles/clearfix";
+@import "../../../styles/grid";
+@import "../../../styles/breakpoint";
+
+.card {
+  @include col-12;
+  @include for-tablet-portrait-up {
+    @include col-6;
+  }
+  @include for-tablet-landscape-up {
+    @include col-4;
+  }
+}
+
+.card-content {
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  &:hover {
+    // increase box shadow and simulate increase in size for cards
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5),
+      0 0 50px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 50px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 50px rgba(0, 0, 0, 0.08);
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    z-index: 20;
+  }
+}

@@ -1,19 +1,49 @@
-import React from 'react';
-import ImageComponent from '../../atom/ImageComponent';
+import React from "react";
+import styled from "styled-components";
+import ImageComponent from "../../atom/ImageComponent";
+import "./styles.scss";
 
-const defaultBorderRadius = "50%";
-
-const CardComponent = ({ ItemName, ItemCost, className, 
-                         ImageRadius = defaultBorderRadius}) => {
+const CardImageComponent = styled(ImageComponent)`
+  height: 200px;
+  overflow: hidden;
+`;
+const CardStyled = styled.div`
+  .card-body {
+    min-height: 130px;
+    padding: 10px;
+    p,
+    h4 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+`;
+const CardComponent = ({ menuItem }) => {
+  const { name, price, image, preparationTime, description } = menuItem;
   return (
-    <div className={className}>
-      <ImageComponent borderRadius={ImageRadius}/>
-      <div>
-          <div>Name: {ItemName}</div>
-          <div>Price: {ItemCost}</div>
+    <CardStyled>
+      <div className="card">
+        <div className="card-content">
+          <CardImageComponent imageUrl={image} imageTitle={name} />
+          <div className="card-body">
+            <div className="card-title">
+              <h4>Name: {name}</h4>
+            </div>
+            <div className="card-price">
+              <p>Price: {price}</p>
+            </div>
+            <div>
+              <p>Preparation Time: {preparationTime}</p>
+            </div>
+            <div>
+              <p>{description}</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  )
+    </CardStyled>
+  );
 };
 
 export default CardComponent;
