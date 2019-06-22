@@ -7,6 +7,7 @@ const CardImageComponent = styled(ImageComponent)`
   height: 200px;
   overflow: hidden;
 `;
+
 const CardStyled = styled.div`
   .card-body {
     min-height: 130px;
@@ -16,6 +17,9 @@ const CardStyled = styled.div`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    .label {
+      font-weight: bold;
     }
   }
 `;
@@ -31,7 +35,10 @@ const CardComponent = ({ menuItem }) => {
               <h4>Name: {name}</h4>
             </div>
             <div className="card-price">
-              <p>Price: {price}</p>
+              <p>
+                <span className="label">Price:</span>
+                <span>{price}</span>
+              </p>
             </div>
             <div>
               <p>Preparation Time: {preparationTime}</p>
