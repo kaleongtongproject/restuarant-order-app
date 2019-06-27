@@ -40,10 +40,10 @@ const CardComponent = ({ menuItem }) => {
                 <span>{price}</span>
               </p>
             </div>
-            <div>
+            <div className="card-preparation">
               <p>Preparation Time: {preparationTime}</p>
             </div>
-            <div>
+            <div className="card-description">
               <p>{description}</p>
             </div>
           </div>

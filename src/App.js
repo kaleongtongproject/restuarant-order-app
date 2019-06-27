@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import styled from "styled-components";
 import ButtonComponent from "./components/atom/ButtonComponent";
 import ImageComponent from "./components/atom/ImageComponent";
@@ -28,34 +28,20 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <ButtonComponent
-          backgroundColor="blue"
-          text="Click Me"
-          buttonColor="white"
-          onClickHandler={handleButtonClick}
-        >
-          <span>Click Me</span>
-        </ButtonComponent>
-        <ButtonItem>Answer Me</ButtonItem>
+    <div className="container">
+      <ButtonComponent
+        backgroundColor="blue"
+        text="Click Me"
+        buttonColor="white"
+        onClickHandler={handleButtonClick}
+      >
+        <span>Click Me</span>
+      </ButtonComponent>
+      <ButtonItem>Answer Me</ButtonItem>
 
-        <SecondImageComponent borderRadius="50%" />
-        <ImageComponent />
-        <CardComponent menuItem={menuItem} />
-      </header>
+      <SecondImageComponent borderRadius="50%" />
+      <ImageComponent />
+      <CardComponent menuItem={menuItem} />
     </div>
   );
 }
