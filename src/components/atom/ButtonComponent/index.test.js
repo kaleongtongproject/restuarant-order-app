@@ -1,16 +1,16 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import ButtonComponent from './';
+import React from "react";
+import { shallow } from "enzyme";
+import ButtonComponent from "./";
 
-import { StyledButton} from './';
+import { StyledButton } from "./";
 
-describe('ButtonComponent', () => {
+describe("ButtonComponent", () => {
   const baseProps = {
-    text: 'Welcome to React',
-    backgroundColor: 'red',
-    onClickHandler: jest.fn(), 
-    buttonColor: 'white',
-    className: 'testButton',
+    text: "Welcome to React",
+    backgroundColor: "red",
+    onClickHandler: jest.fn(),
+    buttonColor: "white",
+    className: "testButton"
   };
   let wrapper;
 
@@ -18,12 +18,12 @@ describe('ButtonComponent', () => {
     wrapper = shallow(<ButtonComponent {...baseProps} />);
   });
 
-  it('renders with appropriate text', () => {
+  it("renders with appropriate text", () => {
     expect(wrapper.text()).toMatch(baseProps.text);
   });
 
-  it('trigger the click event', () => {
-    wrapper.find(StyledButton).simulate('click');
+  it("trigger the click event", () => {
+    wrapper.find(StyledButton).simulate("click");
     //console.log(wrapper.find(StyledButton).);
     expect(baseProps.onClickHandler).toHaveBeenCalled();
   });

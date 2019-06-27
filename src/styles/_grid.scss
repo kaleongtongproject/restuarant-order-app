@@ -1,0 +1,89 @@
+@mixin grid-item {
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left;
+}
+
+@mixin col-1 {
+  max-width: percentage(1/12);
+  float: left;
+  flex: 0 0 percentage(1/12);
+  @include grid-item;
+}
+
+@mixin col-2 {
+  max-width: percentage(2/12);
+  float: left;
+  flex: 0 0 percentage(2/12);
+  @include grid-item;
+}
+
+@mixin col-3 {
+  max-width: percentage(3/12);
+  float: left;
+  flex: 0 0 percentage(3/12);
+  @include grid-item;
+}
+
+@mixin col-4 {
+  max-width: percentage(4/12);
+  float: left;
+  flex: 0 0 percentage(4/12);
+  @include grid-item;
+}
+
+@mixin col-5 {
+  max-width: percentage(5/12);
+  float: left;
+  flex: 0 0 percentage(5/12);
+  @include grid-item;
+}
+
+@mixin col-6 {
+  max-width: percentage(6/12);
+  float: left;
+  flex: 0 0 percentage(6/12);
+  @include grid-item;
+}
+
+@mixin col-7 {
+  max-width: percentage(7/12);
+  float: left;
+  flex: 0 0 percentage(7/12);
+  @include grid-item;
+}
+
+@mixin col-8 {
+  max-width: percentage(8/12);
+  float: left;
+  flex: 0 0 percentage(8/12);
+  @include grid-item;
+}
+
+@mixin col-9 {
+  max-width: percentage(9/12);
+  float: left;
+  flex: 0 0 percentage(9/12);
+  @include grid-item;
+}
+
+@mixin col-10 {
+  max-width: percentage(10/12);
+  float: left;
+  flex: 0 0 percentage(10/12);
+  @include grid-item;
+}
+
+@mixin col-11 {
+  max-width: percentage(11/12);
+  float: left;
+  flex: 0 0 percentage(11/12);
+  @include grid-item;
+}
+
+@mixin col-12 {
+  max-width: percentage(12/12);
+  float: left;
+  flex: 0 0 percentage(12/12);
+  @include grid-item;
+}
