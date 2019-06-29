@@ -7,9 +7,9 @@ describe("CardComponent", () => {
     menuItem: {
       name: "burger",
       price: "499",
-      image:
+      thumb:
         "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg",
-      preparationTime: "20 minutes",
+      time: "20 minutes",
       description: "it is amazingly delicious"
     }
   };
@@ -42,7 +42,7 @@ describe("CardComponent", () => {
         .find(".card-preparation")
         .children()
         .text()
-    ).toMatch(baseProps.menuItem.preparationTime);
+    ).toMatch(baseProps.menuItem.time);
   });
 
   it("renders with appropriate description text", () => {

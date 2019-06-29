@@ -24,27 +24,27 @@ const CardStyled = styled.div`
   }
 `;
 const CardComponent = ({ menuItem }) => {
-  const { name, price, image, preparationTime, description } = menuItem;
+  const { name, calories, thumb, time, headline } = menuItem;
   return (
-    <CardStyled>
-      <div className="card">
-        <div className="card-content">
-          <CardImageComponent imageUrl={image} imageTitle={name} />
-          <div className="card-body">
-            <div className="card-title">
-              <h4>Name: {name}</h4>
-            </div>
-            <div className="card-price">
+    <CardStyled className="card">
+      <div className="card-content">
+        <CardImageComponent imageUrl={thumb} imageTitle={name} />
+        <div className="card-body">
+          <div className="card-title">
+            <h4>Name: {name}</h4>
+          </div>
+          <div className="card-description">
+            <p>{headline}</p>
+          </div>
+          <div className="card-additionalInfo">
+            <div className="card-calories">
               <p>
-                <span className="label">Price:</span>
-                <span>{price}</span>
+                <span className="label">Calories:</span>
+                <span>{calories}</span>
               </p>
             </div>
             <div className="card-preparation">
-              <p>Preparation Time: {preparationTime}</p>
-            </div>
-            <div className="card-description">
-              <p>{description}</p>
+              <p>Preparation Time: {time}</p>
             </div>
           </div>
         </div>
