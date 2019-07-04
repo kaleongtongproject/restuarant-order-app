@@ -1,7 +1,5 @@
 import React from "react";
-import styled from "styled-components";
 import CardComponent from "../CardComponent";
-import "./styles.scss";
 
 const CardGridComponent = ({ orderList }) => {
   return (

@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-const ImageHolder = styled.img`
+export const ImageHolder = styled.img`
   vertical-align: middle;
   width: 100%;
   height: auto;
-  border-radius: ${ props => (props.borderRadius ? props.borderRadius : '')};
+  border-radius: ${props => (props.borderRadius ? props.borderRadius : "")};
 `;
 
 const ImageContainer = styled.div`
@@ -15,14 +15,18 @@ const ImageContainer = styled.div`
 const ImageComponent = ({ imageUrl, imageTitle, borderRadius, className }) => {
   return (
     <ImageContainer className={className}>
-      <ImageHolder src={imageUrl} alt={imageTitle} borderRadius={borderRadius}/>
+      <ImageHolder
+        src={imageUrl}
+        alt={imageTitle}
+        borderRadius={borderRadius}
+      />
     </ImageContainer>
-  )
+  );
 };
 
 ImageComponent.defaultProps = {
-  imageUrl: 'https://picsum.photos/400',
-  imageTitle: 'Placeholder Image'
-}
+  imageUrl: "https://picsum.photos/400",
+  imageTitle: "Placeholder Image"
+};
 
 export default ImageComponent;
