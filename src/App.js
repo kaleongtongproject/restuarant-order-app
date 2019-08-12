@@ -8,9 +8,14 @@ function App() {
   useEffect(() => {
     orderList = setOrderList(data.data);
   }, []);
+
+  const openSideBar = () => {
+    console.log("opening side bar!");
+  };
+
   return (
     <div className="container">
-      <NavigationComponent />
+      <NavigationComponent openSideBar={openSideBar} />
       <div className="content">
         <CardGridComponent orderList={orderList} />
       </div>

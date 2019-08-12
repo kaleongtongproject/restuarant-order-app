@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingBag, faUser } from "@fortawesome/free-solid-svg-icons";
+
 import { ImageHolder } from "../../atom/ImageComponent";
 
 const NavigationStyled = styled.nav`
@@ -13,32 +16,27 @@ const NavigationStyled = styled.nav`
   box-shadow: 0 -2px 6px 0 black;
   z-index: 99;
   background-color: white;
-  .image-div {
-    position: absolute;
-    width: 70px;
-    height: 60px;
-    top: 10px;
-    left: 10px;
-  }
+  display: flex;
+  justify-content: space-between;
 `;
 
 const NavigationIcon = styled(ImageHolder)`
-  width: 80px;
-  height: 80px;
+  height: 60px;
 `;
 
-const NavigationComponent = () => {
+const FAIcon = styled(FontAwesomeIcon)`
+  margin: 10px;
+`;
+
+const NavigationComponent = props => {
   const navIcon =
     "https://media-cdn.tripadvisor.com/media/photo-s/12/8b/1c/f1/our-new-logo.jpg";
+
   return (
     <NavigationStyled>
-      <div className="navbar-desktop">
-        <div className="image-div">
-          <NavigationIcon src={navIcon} alt="Navigation Icon" />
-        </div>
-        <div className="left-navigation" />
-        <div className="right-navigation" />
-      </div>
+      <FAIcon icon={faShoppingBag} size="3x" />
+      <NavigationIcon src={navIcon} alt="Navigation Icon" />
+      <FAIcon icon={faUser} size="3x" />
     </NavigationStyled>
   );
 };

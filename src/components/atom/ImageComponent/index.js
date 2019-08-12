@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const ImageHolder = styled.img`
   vertical-align: middle;
-  width: 100%;
   height: auto;
   border-radius: ${props => (props.borderRadius ? props.borderRadius : "")};
 `;
