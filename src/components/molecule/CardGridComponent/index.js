@@ -12,7 +12,7 @@ const CardGridComponent = ({ orderList }) => {
           time: order.time,
           headline: order.headline
         };
-        return <CardComponent menuItem={menuItem} />;
+        return <CardComponent key={order.id} menuItem={menuItem} />;
       })}
     </div>
   );

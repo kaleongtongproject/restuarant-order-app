@@ -29,12 +29,13 @@ const FAIcon = styled(FontAwesomeIcon)`
 `;
 
 const NavigationComponent = props => {
+  const { toggleShoppingSideBar } = props;
   const navIcon =
     "https://media-cdn.tripadvisor.com/media/photo-s/12/8b/1c/f1/our-new-logo.jpg";
 
   return (
     <NavigationStyled>
-      <FAIcon icon={faShoppingBag} size="3x" />
+      <FAIcon icon={faShoppingBag} size="3x" onClick={toggleShoppingSideBar} />
       <NavigationIcon src={navIcon} alt="Navigation Icon" />
       <FAIcon icon={faUser} size="3x" />
     </NavigationStyled>

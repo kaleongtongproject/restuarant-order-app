@@ -1,23 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import "./App.scss";
 import CardGridComponent from "./components/molecule/CardGridComponent";
 import NavigationComponent from "./components/molecule/NavigationComponent";
+import ShoppingSideBar from "./components/molecule/ShoppingSideBarComponent";
+import { initialCartState, cartReducer } from "./reducers/cartReducer";
 const data = require("./data.json");
+
 function App() {
-  let [orderList, setOrderList] = useState([]);
+  const [orderList, setOrderList] = useState([]);
   useEffect(() => {
-    orderList = setOrderList(data.data);
+    setOrderList(data.data);
   }, []);
 
-  const openSideBar = () => {
-    console.log("opening side bar!");
-  };
+  const [shoppingSideBarOpen, setShoppingSideBarOpen] = useState(false);
+  const toggleShoppingSideBar = () =>
+    setShoppingSideBarOpen(!shoppingSideBarOpen);
+
+  const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
 
   return (
     <div className="container">
-      <NavigationComponent openSideBar={openSideBar} />
+      <NavigationComponent toggleShoppingSideBar={toggleShoppingSideBar} />
       <div className="content">
-        <CardGridComponent orderList={orderList} />
+        {shoppingSideBarOpen && (
+          <ShoppingSideBar state={cartState} dispatch={cartDispatch} />
+        )}
+        <CardGridComponent orderList={orderList} cartDispatch={cartDispatch} />
       </div>
     </div>
   );
