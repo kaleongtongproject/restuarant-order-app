@@ -1,12 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import CartItem from "../../atom/CartItemComponent";
+import ButtonComponent from "../../atom/ButtonComponent";
+
+const Button = styled(ButtonComponent)`
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+`;
 
 const SideBarWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100px;
+  min-width: 200px;
   height: 100%;
   padding: 10px;
   padding-top: 70px;
@@ -29,6 +37,7 @@ export const ShoppingSideBar = ({ dispatch, state, items }) => {
           />
         ) : null;
       })}
+      {!!Object.keys(state).length && <Button>Submit Order</Button>}
     </SideBarWrapper>
   );
 };

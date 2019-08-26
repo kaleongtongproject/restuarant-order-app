@@ -12,12 +12,14 @@ function App() {
     setOrderList(data.data);
   }, []);
 
-  const [shoppingSideBarOpen, setShoppingSideBarOpen] = useState(true);
+  const [shoppingSideBarOpen, setShoppingSideBarOpen] = useState(false);
   const toggleShoppingSideBar = () =>
     setShoppingSideBarOpen(!shoppingSideBarOpen);
 
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
   const addItem = id => cartDispatch({ type: "add", payload: { id } });
+
+  // TODO submit order function
 
   return (
     <div className="container">
