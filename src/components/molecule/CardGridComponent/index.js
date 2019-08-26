@@ -1,18 +1,13 @@
 import React from "react";
 import CardComponent from "../CardComponent";
 
-const CardGridComponent = ({ orderList }) => {
+const CardGridComponent = ({ orderList, addItem }) => {
   return (
     <div className="row">
-      {orderList.map((order, orderIdx) => {
-        const menuItem = {
-          name: order.name,
-          calories: order.calories,
-          thumb: order.thumb,
-          time: order.time,
-          headline: order.headline
-        };
-        return <CardComponent key={order.id} menuItem={menuItem} />;
+      {orderList.map((menuItem, orderIdx) => {
+        return (
+          <CardComponent key={orderIdx} menuItem={menuItem} add={addItem} />
+        );
       })}
     </div>
   );

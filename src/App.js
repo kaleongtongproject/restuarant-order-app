@@ -12,20 +12,25 @@ function App() {
     setOrderList(data.data);
   }, []);
 
-  const [shoppingSideBarOpen, setShoppingSideBarOpen] = useState(false);
+  const [shoppingSideBarOpen, setShoppingSideBarOpen] = useState(true);
   const toggleShoppingSideBar = () =>
     setShoppingSideBarOpen(!shoppingSideBarOpen);
 
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
+  const addItem = id => cartDispatch({ type: "add", payload: { id } });
 
   return (
     <div className="container">
       <NavigationComponent toggleShoppingSideBar={toggleShoppingSideBar} />
       <div className="content">
         {shoppingSideBarOpen && (
-          <ShoppingSideBar state={cartState} dispatch={cartDispatch} />
+          <ShoppingSideBar
+            state={cartState}
+            items={orderList}
+            dispatch={cartDispatch}
+          />
         )}
-        <CardGridComponent orderList={orderList} cartDispatch={cartDispatch} />
+        <CardGridComponent orderList={orderList} addItem={addItem} />
       </div>
     </div>
   );

@@ -1,15 +1,19 @@
 export const initialCartState = {};
 
 export const cartReducer = (state = initialCartState, action) => {
-  switch (action.type) {
+  const {
+    payload: { id },
+    type
+  } = action;
+  switch (type) {
     case "add":
-      return { ...state, ...action.payload };
+      return { ...state, [id]: state[id] ? state[id] + 1 : 1 };
     case "remove":
-      return { ...state, [action.payload.id]: 0 };
+      return { ...state, [id]: 0 };
     case "increment":
-      return { ...state, [action.payload.id]: state[action.payload.id] + 1 };
+      return { ...state, [id]: state[id] + 1 };
     case "decrement":
-      return { ...state, [action.payload.id]: state[action.payload.id] - 1 };
+      return { ...state, [id]: state[id] - 1 };
     default:
       throw new Error("Invalid action type");
   }

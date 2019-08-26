@@ -23,10 +23,10 @@ const CardStyled = styled.div`
     }
   }
 `;
-const CardComponent = ({ menuItem }) => {
-  const { name, calories, thumb, time, headline } = menuItem;
+const CardComponent = ({ menuItem, add }) => {
+  const { name, calories, thumb, time, headline, id } = menuItem;
   return (
-    <CardStyled className="card">
+    <CardStyled className="card" onClick={() => add(id)}>
       <div className="card-content">
         <CardImageComponent imageUrl={thumb} imageTitle={name} />
         <div className="card-body">
@@ -39,7 +39,7 @@ const CardComponent = ({ menuItem }) => {
           <div className="card-additionalInfo">
             <div className="card-calories">
               <p>
-                <span className="label">Calories:</span>
+                <span className="label">Calories: </span>
                 <span>{calories}</span>
               </p>
             </div>
