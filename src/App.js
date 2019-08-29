@@ -3,6 +3,7 @@ import "./App.scss";
 import CardGridComponent from "./components/molecule/CardGridComponent";
 import NavigationComponent from "./components/molecule/NavigationComponent";
 import ShoppingSideBar from "./components/molecule/ShoppingSideBarComponent";
+import UserSideBar from "./components/molecule/UserSideBarComponent";
 import { initialCartState, cartReducer } from "./reducers/cartReducer";
 const data = require("./data.json");
 
@@ -16,14 +17,18 @@ function App() {
   const toggleShoppingSideBar = () =>
     setShoppingSideBarOpen(!shoppingSideBarOpen);
 
+  const [userSideBarOpen, setUserSideBarOpen] = useState(false);
+  const toggleUserSideBar = () => setUserSideBarOpen(!userSideBarOpen);
+
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
   const addItem = id => cartDispatch({ type: "add", payload: { id } });
 
-  // TODO submit order function
-
   return (
     <div className="container">
-      <NavigationComponent toggleShoppingSideBar={toggleShoppingSideBar} />
+      <NavigationComponent
+        toggleShoppingSideBar={toggleShoppingSideBar}
+        toggleUserSideBar={toggleUserSideBar}
+      />
       <div className="content">
         {shoppingSideBarOpen && (
           <ShoppingSideBar
@@ -32,6 +37,7 @@ function App() {
             dispatch={cartDispatch}
           />
         )}
+        {userSideBarOpen && <UserSideBar />}
         <CardGridComponent orderList={orderList} addItem={addItem} />
       </div>
     </div>

@@ -24,6 +24,7 @@ const SideBarWrapper = styled.div`
 `;
 
 export const ShoppingSideBar = ({ dispatch, state, items }) => {
+  const submitOrder = () => console.log(state);
   return (
     <SideBarWrapper>
       {Object.keys(state).map(key => {
@@ -37,7 +38,9 @@ export const ShoppingSideBar = ({ dispatch, state, items }) => {
           />
         ) : null;
       })}
-      {!!Object.keys(state).length && <Button>Submit Order</Button>}
+      {!!Object.keys(state).length && (
+        <Button onClickHandler={submitOrder}>Submit Order</Button>
+      )}
     </SideBarWrapper>
   );
 };
