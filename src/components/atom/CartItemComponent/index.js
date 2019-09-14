@@ -9,6 +9,12 @@ const Icon = styled(FontAwesomeIcon)`
   margin: 0 5px;
 `;
 
+const CartItemWrapper = styled.div`
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px;
+`;
+
 export const CartItemComponent = ({ item, count, dispatch }) => {
   const increment = () =>
     dispatch({ type: "increment", payload: { id: item.id } });
@@ -17,13 +23,13 @@ export const CartItemComponent = ({ item, count, dispatch }) => {
     dispatch({ type: "decrement", payload: { id: item.id } });
 
   return (
-    <div>
+    <CartItemWrapper>
       <span>
         {item.name.trim()}: {count}
       </span>
       <Icon icon={faPlus} onClick={increment} />
       <Icon icon={faMinus} onClick={decrement} />
-    </div>
+    </CartItemWrapper>
   );
 };
 

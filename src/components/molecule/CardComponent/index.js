@@ -4,48 +4,62 @@ import ImageComponent from "../../atom/ImageComponent";
 import "./styles.scss";
 
 const CardImageComponent = styled(ImageComponent)`
-  height: 200px;
-  overflow: hidden;
+  text-align: center;
+  img {
+    max-height: 150px;
+    max-width: 150px;
+  }
 `;
 
 const CardStyled = styled.div`
-  .card-body {
-    min-height: 130px;
+  .card-content {
     padding: 10px;
-    p,
-    h4 {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .label {
-      font-weight: bold;
+    .card-body {
+      .label {
+        font-weight: bold;
+      }
+      .card-title {
+        color: #333;
+      }
+      .card-description {
+        color: #cecece;
+        font-size: 13px;
+      }
+      .card-additionalInfo {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        > p {
+          display: inline-block;
+        }
+      }
     }
   }
 `;
 const CardComponent = ({ menuItem, add }) => {
   const { name, calories, thumb, time, headline, id } = menuItem;
+  const dummyImg =
+    "https://media-cdn.tripadvisor.com/media/photo-s/12/8b/1c/f1/our-new-logo.jpg";
   return (
     <CardStyled className="card" onClick={() => add(id)}>
       <div className="card-content">
-        <CardImageComponent imageUrl={thumb} imageTitle={name} />
+        <CardImageComponent imageUrl={dummyImg} imageTitle={name} />
         <div className="card-body">
           <div className="card-title">
-            <h4>Name: {name}</h4>
+            <h4>{name}</h4>
           </div>
           <div className="card-description">
             <p>{headline}</p>
           </div>
           <div className="card-additionalInfo">
-            <div className="card-calories">
-              <p>
-                <span className="label">Calories: </span>
-                <span>{calories}</span>
-              </p>
-            </div>
-            <div className="card-preparation">
-              <p>Preparation Time: {time}</p>
-            </div>
+            <p className="card-calories">
+              <span className="label">Calories: </span>
+              <span>{calories}</span>
+            </p>
+            <p className="card-preparation">
+              <span className="label">Time: </span>
+              <span>{time}</span>
+            </p>
           </div>
         </div>
       </div>

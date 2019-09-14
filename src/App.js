@@ -50,7 +50,32 @@ function App() {
       <CardGridComponent orderList={orderList} addItem={addItem} />
     </div>
   );
-
+  return (
+    <div className="container">
+      <NavigationComponent
+        toggleShoppingSideBar={toggleShoppingSideBar}
+        toggleUserSideBar={toggleUserSideBar}
+        isLeftSide
+      >
+        <ShoppingSideBar
+          state={cartState}
+          items={orderList}
+          dispatch={cartDispatch}
+        />
+      </NavigationComponent>
+      <div className="content">
+        {shoppingSideBarOpen && (
+          <ShoppingSideBar
+            state={cartState}
+            items={orderList}
+            dispatch={cartDispatch}
+          />
+        )}
+        {userSideBarOpen && <UserSideBar />}
+        <CardGridComponent orderList={orderList} addItem={addItem} />
+      </div>
+    </div>
+  );
   return (
     <BrowserRouter>
       <div className="container">
