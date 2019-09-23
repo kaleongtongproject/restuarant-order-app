@@ -37,19 +37,6 @@ function App() {
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
   const addItem = id => cartDispatch({ type: "add", payload: { id } });
 
-  const Main = () => (
-    <div className="content">
-      {shoppingSideBarOpen && (
-        <ShoppingSideBar
-          state={cartState}
-          items={orderList}
-          dispatch={cartDispatch}
-        />
-      )}
-      {userSideBarOpen && <UserSideBar />}
-      <CardGridComponent orderList={orderList} addItem={addItem} />
-    </div>
-  );
   return (
     <div className="container">
       <NavigationComponent
@@ -57,11 +44,11 @@ function App() {
         toggleUserSideBar={toggleUserSideBar}
         isLeftSide
       >
-        <ShoppingSideBar
+        {/*<ShoppingSideBar
           state={cartState}
           items={orderList}
           dispatch={cartDispatch}
-        />
+        />*/}
       </NavigationComponent>
       <div className="content">
         {shoppingSideBarOpen && (
@@ -72,8 +59,29 @@ function App() {
           />
         )}
         {userSideBarOpen && <UserSideBar />}
-        <CardGridComponent orderList={orderList} addItem={addItem} />
+        <CardGridComponent
+          orderList={orderList}
+          state={cartState}
+          dispatch={cartDispatch}
+        />
       </div>
+    </div>
+  );
+  const Main = () => (
+    <div className="content">
+      {shoppingSideBarOpen && (
+        <ShoppingSideBar
+          state={cartState}
+          items={orderList}
+          dispatch={cartDispatch}
+        />
+      )}
+      {userSideBarOpen && <UserSideBar />}
+      <CardGridComponent
+        orderList={orderList}
+        state={cartState}
+        dispatch={cartDispatch}
+      />
     </div>
   );
   return (
