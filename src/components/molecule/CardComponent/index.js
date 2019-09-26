@@ -30,8 +30,9 @@ const Toggle = styled.div`
 const CardImageComponent = styled(ImageComponent)`
   text-align: center;
   img {
+    object-fit: contain;
+    max-width: 150px;
     height: 170px;
-    width: 150px;
   }
   display: flex;
   justify-content: center;
