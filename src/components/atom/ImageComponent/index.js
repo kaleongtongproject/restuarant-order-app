@@ -5,6 +5,10 @@ export const ImageHolder = styled.img`
   vertical-align: middle;
   height: auto;
   border-radius: ${props => (props.borderRadius ? props.borderRadius : "")};
+  max-width: 100px;
+  max-height: 100px;
+  min-height: 50px;
+  min-width: 50px;
 `;
 
 const ImageContainer = styled.div`

@@ -81,7 +81,8 @@ const NavigationComponent = props => {
 
   return props.isLeftSide ? (
     <LeftNavigationStyled>
-      <NavigationIcon src={navIcon} alt="Navigation Icon" />
+      {/*       <NavigationIcon src={navIcon} alt="Navigation Icon" />
+       */}{" "}
       {props.children}
       <div className="nav-links">{getNavLinks()}</div>
     </LeftNavigationStyled>

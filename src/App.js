@@ -43,13 +43,7 @@ function App() {
         toggleShoppingSideBar={toggleShoppingSideBar}
         toggleUserSideBar={toggleUserSideBar}
         isLeftSide
-      >
-        {/*<ShoppingSideBar
-          state={cartState}
-          items={orderList}
-          dispatch={cartDispatch}
-        />*/}
-      </NavigationComponent>
+      />
       <div className="content">
         {shoppingSideBarOpen && (
           <ShoppingSideBar
@@ -66,41 +60,6 @@ function App() {
         />
       </div>
     </div>
-  );
-  const Main = () => (
-    <div className="content">
-      {shoppingSideBarOpen && (
-        <ShoppingSideBar
-          state={cartState}
-          items={orderList}
-          dispatch={cartDispatch}
-        />
-      )}
-      {userSideBarOpen && <UserSideBar />}
-      <CardGridComponent
-        orderList={orderList}
-        state={cartState}
-        dispatch={cartDispatch}
-      />
-    </div>
-  );
-  return (
-    <BrowserRouter>
-      <div className="container">
-        <NavigationComponent
-          toggleShoppingSideBar={toggleShoppingSideBar}
-          toggleUserSideBar={toggleUserSideBar}
-        />
-        <Route path="/register" component={RegisterComponent} />
-        <Route
-          path="/login"
-          render={props => (
-            <LoginComponent {...props} authenticate={authenticate} />
-          )}
-        />
-        <PrivateRoute exact loggedIn={loggedIn} path="/" component={Main} />
-      </div>
-    </BrowserRouter>
   );
 }
 

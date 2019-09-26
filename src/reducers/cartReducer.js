@@ -13,7 +13,7 @@ export const cartReducer = (state = initialCartState, action) => {
     case "increment":
       return { ...state, [id]: state[id] ? state[id] + 1 : 1 };
     case "decrement":
-      return { ...state, [id]: state[id] - 1 };
+      return { ...state, [id]: state[id] > 0 ? state[id] - 1 : 0 };
     default:
       throw new Error("Invalid action type");
   }
